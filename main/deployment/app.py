@@ -25,17 +25,17 @@ coolant_temp = st.number_input("coolant_temp", min_value=0, max_value=300, value
 
 # Assemble input into DataFrame
 input_data = pd.DataFrame([{
-    'engine_rpm': engine_rpm,
-    'lub_oil_pressure': lub_oil_pressure,
-    'fuel_pressure': fuel_pressure,
-    'coolant_pressure': coolant_pressure,
-    'lub_oil_temp': lub_oil_temp,
-    'coolant_temp': coolant_temp
+    'Engine rpm': engine_rpm,
+    'Lub oil pressure': lub_oil_pressure,
+    'Fuel pressure': fuel_pressure,
+    'Coolant pressure': coolant_pressure,
+    'lub oil temp': lub_oil_temp,
+    'Coolant temp': coolant_temp
 }])
 
 
 if st.button("Predict Failure"):
     prediction = model.predict(input_data)[0]
-    result = "Predictive Maintenance" if prediction == 1 else "No Failure"
+    result = "Predictive Maintenance Needed : Prediction 1 i.e. Failure" if prediction == 1 else "No Failure : Prediction 0"
     st.subheader("Prediction Result:")
     st.success(f"The model predicts: **{result}**")
